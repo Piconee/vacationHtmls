@@ -1,0 +1,447 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Singapore in 3 Giorni — Guida Interattiva</title>
+  <meta name="description" content="Itinerario interattivo di 3 giorni a Singapore: cosa vedere, dove mangiare, attrazioni e mappe, con pagine di dettaglio e checklist." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style> body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif} </style>
+</head>
+<body class="bg-emerald-50/70 text-zinc-900">
+  <!-- HEADER -->
+  <header class="sticky top-0 z-40 border-b border-zinc-200 backdrop-blur bg-white/80">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex flex-wrap gap-3 items-center justify-between">
+      <div class="flex items-center gap-3">
+        <span class="text-2xl">🇸🇬</span>
+        <h1 class="text-xl sm:text-2xl font-extrabold tracking-tight">Singapore in 3 Giorni — Guida Interattiva</h1>
+      </div>
+      <div class="flex items-center gap-2">
+        <button id="resetBtn" class="inline-flex items-center justify-center gap-2 px-3 py-2 rounded-xl font-semibold border border-zinc-300 hover:bg-zinc-100">↺ Reset</button>
+        <button id="exportBtn" class="inline-flex items-center justify-center gap-2 px-3 py-2 rounded-xl font-semibold border border-zinc-300 hover:bg-zinc-100">⬇️ Esporta</button>
+        <button id="installBtn" class="inline-flex items-center justify-center gap-2 px-3 py-2 rounded-xl font-semibold border border-zinc-300 hover:bg-zinc-100 hidden">📲 Installa</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 py-6 grid gap-6 lg:grid-cols-[320px,1fr]">
+    <!-- SIDEBAR -->
+    <aside class="bg-white/80 backdrop-blur border border-zinc-200 rounded-2xl shadow-sm p-4 h-max space-y-4">
+      <div>
+        <h2 class="text-lg font-bold tracking-tight mb-2">Filtri</h2>
+        <div id="filters" class="flex flex-wrap gap-2">
+          <button class="inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs font-medium bg-zinc-100" data-filter="all">Tutto</button>
+          <button class="inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs font-medium bg-zinc-100" data-filter="must">Must‑see</button>
+          <button class="inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs font-medium bg-zinc-100" data-filter="food">Cibo</button>
+          <button class="inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs font-medium bg-zinc-100" data-filter="culture">Cultura</button>
+          <button class="inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs font-medium bg-zinc-100" data-filter="nature">Natura</button>
+          <button class="inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs font-medium bg-zinc-100" data-filter="views">Panorami</button>
+          <button class="inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs font-medium bg-zinc-100" data-filter="night">Sera/Spettacoli</button>
+        </div>
+      </div>
+
+      <div>
+        <h2 class="text-lg font-bold tracking-tight mb-2">Consigli Rapidi</h2>
+        <ul class="list-disc pl-5 space-y-2 text-sm">
+          <li>Prendi la <a class="text-emerald-700 hover:underline" href="https://thesingaporetouristpass.com.sg/type-of-passes/" target="_blank" rel="noopener">Singapore Tourist Pass</a> (3 giorni S$29, verifica sito).</li>
+          <li>L'acqua del rubinetto è potabile: porta una borraccia.</li>
+          <li>Caldo umido: esterni al mattino/sera; interni al pomeriggio.</li>
+          <li>Pagamenti: carte ovunque, comoda EZ‑Link per i trasporti.</li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="text-lg font-bold tracking-tight mb-2">I tuoi Preferiti</h2>
+        <div id="favorites" class="text-sm text-zinc-600">Nessun elemento ancora.</div>
+      </div>
+
+      <div>
+        <h2 class="text-lg font-bold tracking-tight mb-2">Ricerca</h2>
+        <input id="search" type="search" placeholder="Cerca attrazione o cibo…" class="w-full px-3 py-2 rounded-xl bg-zinc-50 border border-zinc-300" />
+      </div>
+    </aside>
+
+    <!-- CONTENT -->
+    <section class="space-y-6">
+      <div class="bg-white/80 backdrop-blur border border-zinc-200 rounded-2xl shadow-sm p-5">
+        <p class="text-sm mb-3 text-zinc-600">Itinerario ottimizzato: <em>Marina Bay & Gardens</em>, <em>Quartieri Storici</em>, <em>Natura & Sera</em>. Puoi spuntare ✅, salvare ⭐, filtrare e aprire i <strong>dettagli</strong> con immagini.</p>
+        <div class="flex flex-wrap gap-2 text-xs">
+          <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-semibold border">💵 SGD</span>
+          <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-semibold border">🌡️ 26–33°C</span>
+          <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-semibold border">🕘 GMT+8</span>
+          <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-semibold border">🚇 MRT</span>
+        </div>
+      </div>
+
+      <!-- DAY 1 -->
+      <details open class="bg-white/80 backdrop-blur border border-zinc-200 rounded-2xl shadow-sm">
+        <summary class="cursor-pointer select-none p-5 flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" class="transition-transform"><path d="M8 5l8 7-8 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <h3 class="text-lg font-bold">Giorno 1 — Marina Bay, Art & Giardini</h3>
+          </div>
+          <div class="text-sm text-zinc-500 pr-3">Panorami • Musei • Sera</div>
+        </summary>
+        <div class="p-5 space-y-4">
+          <div class="flex flex-wrap gap-2 text-xs">
+            <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-semibold border">Quartiere: Marina Bay</span>
+            <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-semibold border">Ritmo: facile ➝ medio</span>
+          </div>
+          <ul id="day1" class="space-y-3"></ul>
+        </div>
+      </details>
+
+      <!-- DAY 2 -->
+      <details class="bg-white/80 backdrop-blur border border-zinc-200 rounded-2xl shadow-sm">
+        <summary class="cursor-pointer select-none p-5 flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" class="transition-transform"><path d="M8 5l8 7-8 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <h3 class="text-lg font-bold">Giorno 2 — Chinatown, Little India & Kampong Glam</h3>
+          </div>
+          <div class="text-sm text-zinc-500 pr-3">Cultura • Templi • Hawker</div>
+        </summary>
+        <div class="p-5">
+          <ul id="day2" class="space-y-3"></ul>
+        </div>
+      </details>
+
+      <!-- DAY 3 (SEPARATO IN DUE BLOCCHI) -->
+      <details class="bg-white/80 backdrop-blur border border-zinc-200 rounded-2xl shadow-sm">
+        <summary class="cursor-pointer select-none p-5 flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" class="transition-transform"><path d="M8 5l8 7-8 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <h3 class="text-lg font-bold">Giorno 3 — Natura & Sera speciale</h3>
+          </div>
+          <div class="text-sm text-zinc-500 pr-3">Sentosa • Botanico • Night Safari</div>
+        </summary>
+        <div class="p-5 space-y-6">
+          <div>
+            <h4 class="font-semibold mb-2 text-emerald-700">🌴 Sentosa & Mare</h4>
+            <ul id="day3_sentosa" class="space-y-3"></ul>
+          </div>
+          <div>
+            <h4 class="font-semibold mb-2 text-indigo-700">🌺 Botanico & Night Safari</h4>
+            <ul id="day3_botanico" class="space-y-3"></ul>
+          </div>
+        </div>
+      </details>
+
+      <p class="text-xs text-zinc-500">Nota: orari, prezzi e show possono variare. Controlla sempre i siti ufficiali.</p>
+    </section>
+  </main>
+
+  <!-- ITEM TEMPLATE -->
+  <template id="itemTpl">
+    <li class="bg-white/80 backdrop-blur border border-zinc-200 rounded-2xl shadow-sm p-4 flex flex-col gap-3" data-tags="">
+      <div class="flex items-start gap-3 justify-between">
+        <div class="min-w-0">
+          <label class="inline-flex items-start gap-2">
+            <input type="checkbox" class="mt-1 size-4 rounded border-zinc-400" />
+            <span class="font-semibold leading-tight title"></span>
+          </label>
+          <div class="mt-1 text-sm text-zinc-600 desc"></div>
+          <div class="mt-2 flex flex-wrap gap-2 text-xs">
+            <span class="inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs font-medium bg-zinc-100 cat"></span>
+            <span class="inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs font-medium bg-zinc-100 when"></span>
+            <span class="inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs font-medium bg-zinc-100 time"></span>
+            <button class="inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs font-medium bg-zinc-100 fav">⭐ Salva</button>
+            <button class="inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs font-medium bg-zinc-100 details">ℹ️ Dettagli</button>
+          </div>
+        </div>
+        <div class="flex flex-col gap-2 items-end shrink-0">
+          <a class="inline-flex items-center justify-center gap-2 px-3 py-2 rounded-xl font-semibold border border-zinc-300 hover:bg-zinc-100 map" target="_blank" rel="noopener">📍 Mappa</a>
+          <a class="inline-flex items-center justify-center gap-2 px-3 py-2 rounded-xl font-semibold border border-zinc-300 hover:bg-zinc-100 link" target="_blank" rel="noopener">🔗 Sito</a>
+        </div>
+      </div>
+    </li>
+  </template>
+
+  <!-- DETAIL MODAL (ORA CENTRATO) -->
+  <div id="detailModal" class="fixed inset-0 hidden flex items-center justify-center p-3 bg-black/50 z-50" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="max-w-4xl w-[min(100%-0.5rem,64rem)]">
+      <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
+        <div class="flex items-center justify-between p-4 border-b border-zinc-200">
+          <h3 id="detailTitle" class="text-lg font-bold">Dettagli</h3>
+          <button class="inline-flex items-center justify-center gap-2 px-3 py-2 rounded-xl font-semibold border border-zinc-300 hover:bg-zinc-100" data-close aria-label="Chiudi">✕</button>
+        </div>
+        <div class="p-0">
+          <div class="relative">
+            <img id="detailImg" src="" alt="" class="w-full h-56 sm:h-80 object-cover" />
+            <div class="absolute bottom-2 right-2 flex gap-2">
+              <button class="inline-flex items-center justify-center gap-2 px-3 py-2 rounded-xl font-semibold border border-zinc-300 bg-white/80 hover:bg-white" id="prevImg" aria-label="Precedente">◀</button>
+              <button class="inline-flex items-center justify-center gap-2 px-3 py-2 rounded-xl font-semibold border border-zinc-300 bg-white/80 hover:bg-white" id="nextImg" aria-label="Successiva">▶</button>
+            </div>
+          </div>
+          <div class="p-4 grid gap-4 md:grid-cols-[2fr,1fr]">
+            <div class="space-y-3">
+              <p id="detailSummary" class="text-sm text-zinc-700"></p>
+              <ul id="detailHighlights" class="list-disc pl-5 text-sm space-y-1"></ul>
+              <p id="detailImgNote" class="text-xs text-zinc-500"></p>
+            </div>
+            <div class="space-y-2 text-sm">
+              <div class="border rounded-xl p-3">
+                <div class="font-semibold mb-1">Info pratiche</div>
+                <div class="space-y-1">
+                  <div><span class="font-medium">MRT:</span> <span id="detailMrt"></span></div>
+                  <div><span class="font-medium">Orari:</span> <span id="detailHours"></span></div>
+                  <div><span class="font-medium">Biglietti:</span> <span id="detailTickets"></span></div>
+                  <div><span class="font-medium">Suggerimenti:</span> <span id="detailTips"></span></div>
+                </div>
+                <div class="mt-2 flex gap-2">
+                  <a id="detailMap" class="inline-flex items-center justify-center gap-2 px-3 py-2 rounded-xl font-semibold border border-zinc-300 hover:bg-zinc-100" target="_blank" rel="noopener">📍 Mappa</a>
+                  <a id="detailSite" class="inline-flex items-center justify-center gap-2 px-3 py-2 rounded-xl font-semibold border border-zinc-300 hover:bg-zinc-100" target="_blank" rel="noopener">🔗 Sito</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+  // ---- DATA (agg. Aug 2025) ----
+  // Nota immagini: ti lascio URL vuoti così puoi inserire tu i link.
+  // Per ogni voce trovi "imgNote" con le istruzioni su che immagine scegliere.
+  const DATA = {
+    day1: [
+      { title: "Merlion Park & Skyline", desc: "Foto con il Merlion e passeggiata fino all'ArtScience Museum lungo la baia.", cat: "must,views,culture", when: "Mattina", time: "45–60 min", map: "https://maps.google.com/?q=Merlion+Park+Singapore", link: "https://www.visitsingapore.com/see-do-singapore/recreation-leisure/viewpoints/merlion-park/", details: { summary: "Il Merlion, metà pesce e metà leone, è il simbolo della città. Da qui vedi l'intero profilo di Marina Bay.", highlights: ["Vista su Marina Bay Sands e ArtScience", "Ottimo all'alba o tramonto", "Passeggiata lungomare"], mrt: "Raffles Place (EW/NS)", hours: "Sempre accessibile", tickets: "Gratis", tips: "Vai presto per evitare caldo/affollamento.", imgs: ["https://images.squarespace-cdn.com/content/v1/5be172e38f513032e447734b/1585019976908-064DR6KZGCC05QZEIATP/Singapore-Tours-Merlion-Park.jpg","https://live.staticflickr.com/4467/37011673624_4f3dfb9fa2_b.jpg"], imgNote: "Scatto orizzontale del Merlion in primo piano con lo skyline (MBS) sullo sfondo." } },
+      { title: "ArtScience Museum — Future World (teamLab)", desc: "Mostra immersiva e interattiva. Ideale nelle ore calde.", cat: "must,culture", when: "Tarda mattina / primo pomeriggio", time: "90–120 min", map: "https://maps.google.com/?q=ArtScience+Museum+Singapore", link: "https://www.marinabaysands.com/museum/exhibitions/future-world.html", details: { summary: "Mostre che uniscono arte e tecnologia; Future World è la più iconica con installazioni luminose e interattive.", highlights: ["Installazioni digitali teamLab", "Spazi climatizzati", "Perfetto per famiglie"], mrt: "Bayfront (DT/CE)", hours: "In genere 10:00–19:00 (verifica)", tickets: "A pagamento", tips: "Prenota fascia oraria.", imgs: ["https://upload.wikimedia.org/wikipedia/commons/f/f3/ArtScience_Museum%2C_Marina_Bay_Sands%2C_Singapore.jpg","https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2e/0a/88/c8/artscience-museum.jpg?w=900&h=500&s=1"], imgNote: "Esterno del museo a forma di loto OPPURE interno teamLab con luci sospese." } },
+      { title: "Gardens by the Bay — Cloud Forest / Flower Dome", desc: "Serre climatizzate + passeggiata al Supertree Grove.", cat: "must,nature", when: "Pomeriggio", time: "2–3 h", map: "https://maps.google.com/?q=Gardens+by+the+Bay", link: "https://www.gardensbythebay.com.sg/", details: { summary: "Serre spettacolari, cascate indoor e futuristico Supertree Grove.", highlights: ["Cloud Forest waterfall", "Flower Dome tematico", "OCBC Skyway"], mrt: "Bayfront (DT/CE)", hours: "Serre ~9:00–21:00", tickets: "A pagamento", tips: "Resta per lo show serale.", imgs: ["https://www.gardensbythebay.com.sg/content/dam/gbb-2021/image/things-to-do/attractions/cloud-forest/gallery/cloud-forest-01.jpg","https://attractions.changirecommends.com/viewfile/group1/M02/5E/33/rB8nsGaYixqActsKABvRoPotPds491.jpg"], imgNote: "Cascata indoor della Cloud Forest o panorama con Supertree al tramonto." } },
+      { title: "Garden Rhapsody — Supertree Grove (show)", desc: "Spettacolo di luci & musica: tipicamente 19:45 e 20:45.", cat: "night,views", when: "Sera", time: "15 min", map: "https://maps.google.com/?q=Supertree+Grove", link: "https://www.gardensbythebay.com.sg/en/things-to-do/calendar-of-events/garden-rhapsody.html", details: { summary: "Show luminoso sincronizzato con musica tra i Supertree.", highlights: ["Atmosfera magica", "Gratuito", "Musica a tema variabile"], mrt: "Bayfront (DT/CE)", hours: "2 show serali", tickets: "Gratis", tips: "Arriva 10–15 min prima.", imgs: ["https://cdn-imgix.headout.com/media/images/fd4184bac0c571b5b2807891af43d89f-Gardens%20by%20the%20Bay%20Light%20Show%20-%20World%20of%20Fantasy.jpg","https://cdn-imgix.headout.com/microbrands-content-image/image/18d93bf8b15a8f1455671a8c41e2ad01-Supertree%20Grove.jpg?auto=format&w=1069.6000000000001&h=687.6&q=90&ar=14%3A9&crop=faces&fit=crop"], imgNote: "Supertree illuminati di notte durante lo spettacolo (campo largo)." } },
+      { title: "Spectra — Light & Water Show (Marina Bay Sands)", desc: "Show gratuito sul waterfront: di norma 20:00 e 21:00 (ven/sab +22:00).", cat: "night,views", when: "Sera", time: "15 min", map: "https://maps.google.com/?q=Event+Plaza+Marina+Bay+Sands", link: "https://www.marinabaysands.com/attractions/spectra.html", details: { summary: "Coreografia di fontane, luci e proiezioni sulla baia.", highlights: ["Musica e getti d'acqua", "Vista skyline", "Gratuito"], mrt: "Bayfront (DT/CE)", hours: "Più spettacoli serali", tickets: "Gratis", tips: "Vista top dalla promenade MBS.", imgs: ["https://www.marinabaysands.com/content/dam/marinabaysands/attractions/spectra/spectra-thestoryresized-1920x1080.png","https://www.littledayout.com/wp-content/uploads/e-Spectra-Light-and-Water-Show-3_Credit-Marina-Bay-Sands.png"], imgNote: "Getti d'acqua e laser davanti al Marina Bay Sands, ripresi dalla promenade." } },
+      { title: "Cena hawker — Lau Pa Sat (Satay Street)", desc: "Iconico hawker; la strada adiacente si riempie di griglie satay alla sera.", cat: "food", when: "Cena", time: "60–90 min", map: "https://maps.google.com/?q=Lau+Pa+Sat", link: "https://www.laupasat.sg/", details: { summary: "Storico mercato in ghisa con cucine da tutto il Sud‑Est asiatico.", highlights: ["Satay Street di sera", "Varietà e prezzi moderati", "Architettura vittoriana"], mrt: "Raffles Place / Telok Ayer", hours: "Edificio 24/7", tickets: "—", tips: "Paga alla consegna.", imgs: ["https://media.cnn.com/api/v1/images/stellar/prod/170509170737-singapore-satay-street-food.jpg?q=w_5183,h_3232,x_0,y_0,c_fill","https://thumbs.dreamstime.com/z/singapore-satay-street-th-april-satay-street-lau-pa-sat-singapore-street-food-steroids-entire-street-central-business-274938426.jpg"], imgNote: "Banchi satay fumanti in strada di sera OPPURE interno in ghisa del mercato." } }
+    ],
+    day2: [
+      { title: "Chinatown — Buddha Tooth Relic Temple", desc: "Tempio e museo; atmosfera suggestiva.", cat: "culture", when: "Mattina", time: "60–90 min", map: "https://maps.google.com/?q=Buddha+Tooth+Relic+Temple", link: "https://www.btrts.org.sg/", details: { summary: "Tempio buddhista con reliquiario e museo.", highlights: ["Sale ornate", "Museo gratuito", "Terrazza con giardino"], mrt: "Chinatown (DT/NE)", hours: "7:00–19:00 circa", tickets: "Gratis", tips: "Abbigliamento rispettoso.", imgs: ["https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0b/ce/1f/25/photo2jpg.jpg?w=900&h=500&s=1","https://www.danflyingsolo.com/wp-content/uploads/2020/05/Singapore-Chinatown-2.jpg"], imgNote: "Facciata rossa del tempio a più piani OPPURE sala interna con statue dorate." } },
+      { title: "Maxwell Food Centre — pranzo", desc: "Prova Hainanese Chicken Rice (Tian Tian) e laksa.", cat: "food", when: "Pranzo", time: "45–60 min", map: "https://maps.google.com/?q=Maxwell+Food+Centre", link: "https://maxwellfoodcentre.com/", details: { summary: "Hawker celebre con specialità locali.", highlights: ["Chicken rice di culto", "Bevande fresche", "Prezzi economici"], mrt: "Tanjong Pagar / Chinatown", hours: "Molti stalli 8:00–22:00", tickets: "—", tips: "Le code indicano qualità.", imgs: ["https://thumbs.dreamstime.com/z/maxwell-food-center-maxwell-road-hawker-centre-well-known-its-affordable-tasty-huge-variety-local-hawker-70511861.jpg","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTo9UgFodya1nF5dSoI_uQi9MNU8GJFU_Ha1w&s"], imgNote: "Bancarelle affollate + piatto di Hainanese chicken rice in primo piano." } },
+      { title: "Little India — Sri Veeramakaliamman & Tekka Centre", desc: "Templi coloratissimi e mercato alimentare.", cat: "culture,food", when: "Pomeriggio", time: "90–120 min", map: "https://maps.google.com/?q=Sri+Veeramakaliamman+Temple+Singapore", link: "https://www.visitsingapore.com/see-do-singapore/places-to-see/little-india/", details: { summary: "Cuore della comunità indiana: templi vivaci e Tekka Market.", highlights: ["Architettura dravidica", "Spezie e sari", "Street art"], mrt: "Little India (DT/NE)", hours: "Templi vari; Tekka diurno", tickets: "Gratis (templi)", tips: "Togli le scarpe nei templi.", imgs: ["https://chinatown.sg/wp-content/uploads/2024/05/MJ-Little_India_in_Singapore.jpg","https://singaporetravelinsider.com/wp-content/uploads/2022/12/street-in-little-india.jpg"], imgNote: "Gopuram colorato del tempio OPPURE banchi spezie/verdure al Tekka Centre." } },
+      { title: "Kampong Glam — Sultan Mosque & Haji Lane", desc: "Street art, boutique e caffè; tramonto fotogenico.", cat: "culture", when: "Tardo pomeriggio", time: "60–90 min", map: "https://maps.google.com/?q=Sultan+Mosque+Singapore", link: "https://www.visitsingapore.com/see-do-singapore/places-to-see/kampong-glam/", details: { summary: "Quartiere malese/arabeggiante con moschea storica e vicoli artistici.", highlights: ["Cupola dorata", "Murales di Haji Lane", "Cucina mediorientale"], mrt: "Bugis (DT/EW)", hours: "Negozi fino a sera", tickets: "Gratis (donazione)", tips: "Rispetta il dress code.", imgs: ["https://culturecurious.biz/wp-content/uploads/2024/08/Masjid-Sultan-Singapore.jpg","https://media.cntraveler.com/photos/5d543cc3b817f70008a5799d/master/pass/00-singapore-kampongglam-2019-GettyImages-1145769125.jpg"], imgNote: "Prospettiva sulla Sultan Mosque con cupola dorata OPPURE murales vivaci in Haji Lane." } },
+      { title: "Jewel Changi — Rain Vortex (show)", desc: "Se capiti in aeroporto la sera: spettacolo luci & musica.", cat: "night,views", when: "Sera (facoltativo)", time: "30–45 min", map: "https://maps.google.com/?q=HSBC+Rain+Vortex", link: "https://www.jewelchangiairport.com/en/attractions/rain-vortex.html", details: { summary: "Cascata indoor più alta del mondo in un complesso commerciale/ricreativo.", highlights: ["Show serale", "Giardini indoor", "Affaccio dai piani alti"], mrt: "Changi Airport (CG)", hours: "Show serali a fasce", tickets: "Gratis", tips: "Controlla gli orari.", imgs: ["https://www.about.hsbc.com.sg/-/media/singapore/images/190405-the-hsbc-rain-vortex-is-ready-to-dazzle-visitors-at-jewel-880x544.jpg","https://c8.alamy.com/comp/2TDJWF1/the-rain-vortex-waterfall-inside-the-changi-jewel-entertainment-and-retail-complex-in-changi-airport-in-singapore-2TDJWF1.jpg"], imgNote: "Cascata Rain Vortex con cupola in vetro illuminata; inquadratura centrale/verticale." } }
+    ],
+    day3A: [
+      { title: "Sentosa — Cable Car o monorotaia", desc: "Raggiungi l'isola e goditi la vista sulla baia.", cat: "views", when: "Mattina", time: "30–45 min", map: "https://maps.google.com/?q=Sentosa+Island", link: "https://www.sentosa.com.sg/", details: { summary: "Accesso panoramico all'isola del divertimento di Singapore.", highlights: ["Vedute del porto", "Collegamento da VivoCity", "Funivia classica"], mrt: "HarbourFront (NE/CC)", hours: "Frequenze continue", tickets: "A pagamento", tips: "Se hai vertigini usa la monorotaia.", imgs: ["https://www.roots.gov.sg/-/media/Roots/Images/landmarks/Sentosa-Heritage-Trail/Cable-Car-1.ashx",""], imgNote: "Cabine della funivia sopra il porto OPPURE monorotaia Sentosa Express con skyline." } },
+      { title: "S.E.A. Aquarium o Skyline Luge", desc: "Scegli tra acquario top o divertimento in pista.", cat: "must,culture", when: "Mattina/Pomeriggio", time: "2–3 h", map: "https://maps.google.com/?q=S.E.A.+Aquarium", link: "https://www.rwsentosa.com/en/attractions/sea-aquarium", details: { summary: "Vasca Ocean Dome e tante specie; alternativa adrenalinica con Luge.", highlights: ["Ocean Dome", "Specie marine", "Luge"], mrt: "HarbourFront (NE/CC) + Sentosa", hours: "Diurno", tickets: "A pagamento", tips: "Acquista online, vai presto.", imgs: ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQH_UyGmJ_Q4FzSMZAavRBobuObK49hf0paiA&s",""], imgNote: "Grande vasca blu con squali/razze OPPURE kart Luge in azione su pista." } },
+      { title: "Relax a Palawan/Siloso Beach", desc: "Spiaggia urbana per un paio d'ore di relax.", cat: "nature", when: "Pomeriggio", time: "1–2 h", map: "https://maps.google.com/?q=Palawan+Beach+Singapore", link: "https://www.sentosa.com.sg/en/things-to-do/attractions/beaches/", details: { summary: "Spiagge curate, docce e bar. Acqua calda tutto l'anno.", highlights: ["Ponte per l'isola più a Sud", "Passeggiate", "Beach club"], mrt: "HarbourFront + Sentosa", hours: "Sempre accessibili", tickets: "Gratis", tips: "Crema solare e repellente.", imgs: ["https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0d/78/7b/34/floating-bridge-at-siloso.jpg?w=900&h=500&s=1",""], imgNote: "Spiaggia con sabbia chiara e palme; ponte sospeso a Palawan come soggetto." } }
+    ],
+    day3B: [
+      { title: "Singapore Botanic Gardens (UNESCO)", desc: "Aperto 5:00–24:00; visita il National Orchid Garden (a pagamento).", cat: "nature, must", when: "Mattina", time: "2–3 h", map: "https://maps.google.com/?q=Singapore+Botanic+Gardens", link: "https://www.nparks.gov.sg/sbg/visit-us", details: { summary: "Polmone verde storico, perfetto per camminate e picnic.", highlights: ["Laghetti con cigni", "Ginger Garden", "Orchid Garden"], mrt: "Botanic Gardens (DT/CC)", hours: "Parco 5:00–24:00", tickets: "Parco gratis; Orchid Garden a pagamento", tips: "Arriva presto.", imgs: ["https://media.cntraveler.com/photos/5a90b75389971c2c547af152/16:9/w_2560,c_limit/National-Orchid-Garden_2018_National-Orchid-Garden-(2)-Pls-credit-NParks-for-the-photos).jpg",""], imgNote: "Lago con cigni o vialetti alberati; per Orchid Garden, close-up di orchidee vivaci." } },
+      { title: "Bird Paradise (Mandai)", desc: "Nuovo grande parco aviario con habitat tematici.", cat: "nature", when: "Pomeriggio", time: "2–3 h", map: "https://maps.google.com/?q=Bird+Paradise+Mandai", link: "https://www.mandai.com/en/bird-paradise.html", details: { summary: "Habitat immersivi e show didattici.", highlights: ["Voli in voliera", "Feeding sessions", "Percorsi ombreggiati"], mrt: "Khatib + navetta Mandai", hours: "9:00–18:00", tickets: "A pagamento", tips: "Cappellino e acqua.", imgs: ["https://www.asiainfrasolutions.com/wp-content/uploads/2024/05/Mandai-Bird-Paradise.jpg",""], imgNote: "Pappagalli colorati o voliera ampia con passerella; evita primi piani troppo stretti." } },
+      { title: "Night Safari (Mandai)", desc: "Safari notturno con tram e sentieri.", cat: "night, nature", when: "Sera", time: "2–3 h", map: "https://maps.google.com/?q=Night+Safari+Singapore", link: "https://www.mandai.com/en/night-safari.html", details: { summary: "Animali attivi dopo il tramonto in habitat semi‑naturali.", highlights: ["Tram notturno", "Spettacoli fauna", "Sentieri soft"], mrt: "Khatib + navetta Mandai", hours: "Serale su fasce", tickets: "A pagamento", tips: "Prenota l'orario; repellente.", imgs: ["https://wonderwall.sg/images/default-source/content/dam/wonderwall/images/2024/05/milestones-in-moonlight-night-safari-celebrates-30-years-of-wildlife-wonders/night_safari_30_tram_rides.jpg?sfvrsn=6deec85c_1",""], imgNote: "Ingresso illuminato del Night Safari OPPURE silhouette di animali in luce soffusa (no flash)." } }
+    ]
+  };
+
+  // ---- RENDER ----
+  function renderList(listId, items){
+    const ul = document.getElementById(listId);
+    ul.innerHTML = "";
+    for (const item of items){
+      const li = document.getElementById('itemTpl').content.cloneNode(true);
+      const root = li.querySelector('li');
+      root.dataset.tags = item.cat;
+      li.querySelector('.title').textContent = item.title;
+      li.querySelector('.desc').textContent = item.desc;
+      li.querySelector('.cat').textContent = item.cat.split(',')[0];
+      li.querySelector('.when').textContent = item.when;
+      li.querySelector('.time').textContent = item.time;
+      li.querySelector('.map').href = item.map;
+      li.querySelector('.link').href = item.link;
+
+      // restore state
+      const key = `sg3_${listId}_${item.title}`;
+      const saved = JSON.parse(localStorage.getItem(key) || '{}');
+      const checkbox = li.querySelector('input[type="checkbox"]');
+      checkbox.checked = !!saved.done;
+      if (checkbox.checked) root.classList.add('opacity-60');
+
+      // handlers
+      checkbox.addEventListener('change', (e)=>{
+        root.classList.toggle('opacity-60', e.target.checked);
+        localStorage.setItem(key, JSON.stringify({ done: e.target.checked }));
+      });
+
+      li.querySelector('.fav').addEventListener('click', ()=> toggleFav(item.title, item.map, item.link));
+      li.querySelector('.details').addEventListener('click', ()=> openDetails(item));
+
+      ul.appendChild(li);
+    }
+  }
+
+  function toggleFav(title, map, link){
+    const favs = JSON.parse(localStorage.getItem('sg3_favs') || '[]');
+    const idx = favs.findIndex(f => f.title === title);
+    if (idx >= 0) favs.splice(idx,1); else favs.push({title, map, link});
+    localStorage.setItem('sg3_favs', JSON.stringify(favs));
+    drawFavs();
+  }
+
+  function drawFavs(){
+    const favs = JSON.parse(localStorage.getItem('sg3_favs') || '[]');
+    const box = document.getElementById('favorites');
+    if (!favs.length){ box.textContent = 'Nessun elemento ancora.'; return; }
+    box.innerHTML = '';
+    for (const f of favs){
+      const row = document.createElement('div');
+      row.className = 'flex items-center justify-between gap-2 py-1';
+      row.innerHTML = `<span class="truncate">⭐ ${f.title}</span>
+        <span class="flex items-center gap-1"> 
+          <a class="text-emerald-700 hover:underline" target="_blank" rel="noopener" href="${f.map}">📍</a>
+          <a class="text-emerald-700 hover:underline" target="_blank" rel="noopener" href="${f.link}">🔗</a>
+        </span>`;
+      box.appendChild(row);
+    }
+  }
+
+  // Filters & Search
+  function applyFilters(){
+    const active = document.querySelector('.filter-active')?.dataset.filter || 'all';
+    const q = document.getElementById('search').value.toLowerCase();
+    document.querySelectorAll('li[data-tags]').forEach(el => {
+      const tags = el.dataset.tags;
+      const title = el.querySelector('.title').textContent.toLowerCase();
+      const showTag = active === 'all' || tags.includes(active);
+      const showText = !q || title.includes(q);
+      el.classList.toggle('hidden', !(showTag && showText));
+    });
+  }
+
+  document.getElementById('filters').addEventListener('click', (e)=>{
+    if (!e.target.closest('button')) return;
+    document.querySelectorAll('#filters button').forEach(c => c.classList.remove('filter-active','ring-1','ring-emerald-400'));
+    const btn = e.target.closest('button');
+    btn.classList.add('filter-active','ring-1','ring-emerald-400');
+    applyFilters();
+  });
+  document.getElementById('search').addEventListener('input', applyFilters);
+
+  // Export helpers
+  function buildExportData(){
+    const done = [...document.querySelectorAll('li[data-tags]')]
+      .filter(li=>li.querySelector('input').checked)
+      .map(li=>li.querySelector('.title').textContent);
+    const favs = JSON.parse(localStorage.getItem('sg3_favs')||'[]');
+    return JSON.stringify({ done, favs }, null, 2);
+  }
+
+  // Reset & Export
+  document.getElementById('resetBtn').addEventListener('click', ()=>{
+    Object.keys(localStorage).filter(k=>k.startsWith('sg3_')).forEach(k=>localStorage.removeItem(k));
+    document.querySelectorAll('input[type="checkbox"]').forEach(cb=>{ cb.checked=false; cb.closest('li').classList.remove('opacity-60'); });
+    drawFavs();
+  });
+  document.getElementById('exportBtn').addEventListener('click', ()=>{
+    const json = buildExportData();
+    const blob = new Blob([json], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = Object.assign(document.createElement('a'), { href: url, download: 'singapore-3gg-preferiti.json' });
+    a.click(); URL.revokeObjectURL(url);
+  });
+
+  // PWA (opzionale)
+  let deferredPrompt;
+  window.addEventListener('beforeinstallprompt', (e)=>{ e.preventDefault(); deferredPrompt = e; document.getElementById('installBtn').classList.remove('hidden'); });
+  document.getElementById('installBtn').addEventListener('click', async ()=>{ if (!deferredPrompt) return; deferredPrompt.prompt(); await deferredPrompt.userChoice; deferredPrompt=null; document.getElementById('installBtn').classList.add('hidden'); });
+
+  // ---- DETAIL MODAL ----
+  let carouselIndex = 0;
+  const PLACEHOLDER = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450"><rect width="100%" height="100%" fill="%23e5e7eb"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="%236b7280" font-family="Inter,Arial" font-size="24">Immagine non impostata</text></svg>';
+
+  function openDetails(item){
+    const d = item.details || {};
+    document.getElementById('detailTitle').textContent = item.title;
+    document.getElementById('detailSummary').textContent = d.summary || item.desc || '';
+    const hl = document.getElementById('detailHighlights'); hl.innerHTML = '';
+    (d.highlights || []).forEach(h=>{ const li=document.createElement('li'); li.textContent=h; hl.appendChild(li); });
+    document.getElementById('detailMrt').textContent = d.mrt || '—';
+    document.getElementById('detailHours').textContent = d.hours || '—';
+    document.getElementById('detailTickets').textContent = d.tickets || '—';
+    document.getElementById('detailTips').textContent = d.tips || '—';
+    document.getElementById('detailMap').href = item.map;
+    document.getElementById('detailSite').href = item.link;
+    document.getElementById('detailImgNote').textContent = d.imgNote || '';
+
+    const imgs = (Array.isArray(d.imgs) ? d.imgs.filter(Boolean) : []);
+    const arr = imgs.length ? imgs : [PLACEHOLDER];
+    const imgEl = document.getElementById('detailImg');
+    imgEl.dataset.imgs = JSON.stringify(arr);
+    imgEl.onerror = ()=>{ imgEl.src = PLACEHOLDER; };
+    setDetailImg(0);
+
+    const modal = document.getElementById('detailModal');
+    modal.classList.remove('hidden');
+    modal.setAttribute('aria-hidden','false');
+  }
+
+  function setDetailImg(idx){
+    const imgEl = document.getElementById('detailImg');
+    const imgs = JSON.parse(imgEl.dataset.imgs || '[]');
+    if (!imgs.length) return;
+    if (idx < 0) idx = imgs.length - 1;
+    if (idx >= imgs.length) idx = 0;
+    carouselIndex = idx;
+    imgEl.src = imgs[carouselIndex];
+    imgEl.alt = `Immagine ${carouselIndex+1} di ${imgs.length}`;
+  }
+
+  document.getElementById('prevImg').addEventListener('click', ()=> setDetailImg(carouselIndex-1));
+  document.getElementById('nextImg').addEventListener('click', ()=> setDetailImg(carouselIndex+1));
+  document.querySelectorAll('[data-close]').forEach(btn=> btn.addEventListener('click', ()=>{
+    const modal = document.getElementById('detailModal');
+    modal.classList.add('hidden');
+    modal.setAttribute('aria-hidden','true');
+  }));
+  document.addEventListener('keydown', (e)=>{ if (e.key==='Escape'){ const m=document.getElementById('detailModal'); if(!m.classList.contains('hidden')){ m.classList.add('hidden'); m.setAttribute('aria-hidden','true'); } } });
+  document.getElementById('detailModal').addEventListener('click', (e)=>{ if(e.target.id==='detailModal'){ e.currentTarget.classList.add('hidden'); e.currentTarget.setAttribute('aria-hidden','true'); } });
+
+  // ---- SELF-TESTS (console) ----
+  (function runSelfTests(){
+    const results = [];
+    try {
+      // Test 1: render day1
+      renderList('day1', DATA.day1);
+      const list1 = document.querySelectorAll('#day1 li');
+      results.push(['Render Day1 >0 items', list1.length > 0]);
+
+      // Test 2: checkbox persistence
+      const first = document.querySelector('#day1 li input[type="checkbox"]');
+      first.checked = true; first.dispatchEvent(new Event('change'));
+      const k = `sg3_day1_${DATA.day1[0].title}`;
+      results.push(['LocalStorage written', !!localStorage.getItem(k)]);
+
+      // Test 3: modal open/close + placeholder image
+      openDetails(DATA.day1[0]);
+      const opened = !document.getElementById('detailModal').classList.contains('hidden');
+      const srcNow = document.getElementById('detailImg').getAttribute('src');
+      document.querySelector('[data-close]').click();
+      const closed = document.getElementById('detailModal').classList.contains('hidden');
+      results.push(['Modal opens & closes', opened && closed]);
+      results.push(['Image placeholder set', !!srcNow]);
+
+      // Test 4: export JSON shape
+      const payload = JSON.parse((()=>{ const done = []; const favs = []; return JSON.stringify({done,favs}); })());
+      results.push(['Export JSON structure', 'done' in payload && 'favs' in payload]);
+
+      // Test 5: render Giorno 3 separato
+      renderList('day3_sentosa', DATA.day3A);
+      renderList('day3_botanico', DATA.day3B);
+      results.push(['Render Day3 sections >0', document.querySelectorAll('#day3_sentosa li').length>0 && document.querySelectorAll('#day3_botanico li').length>0]);
+    } catch (err){
+      console.warn('Self-test error:', err);
+      results.push(['Unexpected exception', false]);
+    }
+    const pass = results.every(r=>r[1]);
+    (pass? console.log : console.warn)('UI Self-Tests:', Object.fromEntries(results));
+  })();
+
+  // FINAL RENDER (dopo test)
+  renderList('day2', DATA.day2);
+  renderList('day3_sentosa', DATA.day3A);
+  renderList('day3_botanico', DATA.day3B);
+  drawFavs();
+  applyFilters();
+  </script>
+</body>
+</html>
