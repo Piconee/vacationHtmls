@@ -23,18 +23,12 @@
     a:hover{text-decoration:underline}
     .wrapper{max-width:1100px;margin:0 auto;padding:24px}
 
-    /* Header sticky */
+    /* Header senza navbar */
     header{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid #e5e7eb;box-shadow:0 2px 6px rgba(0,0,0,.05)}
-    .topbar{display:flex;gap:16px;align-items:center;justify-content:space-between;padding:14px 24px}
+    .topbar{display:flex;gap:12px;align-items:center;justify-content:flex-start;padding:14px 24px}
     .brand{display:flex;align-items:center;gap:12px}
     .brand .logo{width:36px;height:36px;border-radius:9px;background:radial-gradient(circle at 30% 30%, var(--accent), transparent 60%), radial-gradient(circle at 70% 70%, var(--accent-2), transparent 60%), #3b82f6;box-shadow: var(--shadow)}
     .brand h1{font-size:18px;margin:0}
-
-    /* Nav pill + scrollabile su mobile */
-    nav{display:flex;flex-wrap:wrap;gap:10px;overflow:auto;white-space:nowrap;-webkit-overflow-scrolling:touch;scroll-snap-type:x proximity}
-    nav a{display:inline-block;padding:10px 12px;border:1px solid #e5e7eb;border-radius:10px;scroll-snap-align:start}
-
-    /* Hero */
     .hero{padding:20px 24px 8px}
     .hero h2{font-size:26px;margin:0 0 6px}
     .hero p{margin:0;color:var(--muted)}
@@ -49,10 +43,7 @@
     .col ul{margin:0;padding-left:18px}
     .col li{margin:6px 0}
     .col a[target="_blank"]::after{content:" ↗";opacity:.7}
-
-    @media(min-width:740px){
-      .cols{grid-template-columns:repeat(2,1fr)}
-    }
+    @media(min-width:740px){.cols{grid-template-columns:repeat(2,1fr)}}
 
     /* Footer */
     footer{margin:28px 0 20px;color:var(--muted);text-align:center}
@@ -106,15 +97,6 @@
         <div class="logo" aria-hidden="true"></div>
         <h1>Itinerario Bali · 7 Giorni · Base: Cemagi</h1>
       </div>
-      <nav aria-label="Giorni">
-        <a href="#g1">Giorno 1</a>
-        <a href="#g2">Giorno 2</a>
-        <a href="#g3">Giorno 3</a>
-        <a href="#g4">Giorno 4</a>
-        <a href="#g5">Giorno 5</a>
-        <a href="#g6">Giorno 6</a>
-        <a href="#g7">Giorno 7</a>
-      </nav>
     </div>
     <div class="hero wrapper">
       <h2>Settimana perfetta tra mare, natura e cultura</h2>
@@ -123,7 +105,6 @@
   </header>
 
   <main class="wrapper">
-
     <!-- Giorno 1 -->
     <section id="g1" class="day" aria-labelledby="g1t">
       <h3 id="g1t">📍 Giorno 1 – Arrivo & Relax a Canggu</h3>
